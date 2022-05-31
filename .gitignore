@@ -2,7 +2,7 @@
 # Edit at https://www.toptal.com/developers/gitignore?templates=intellij,maven,java
 
 ### Allure ###
-allure-result/*
+allure-results/*
 
 ### Intellij ###
 # Covers JetBrains IDEs: IntelliJ, RubyMine, PhpStorm, AppCode, PyCharm, CLion, Android Studio, WebStorm and Rider
