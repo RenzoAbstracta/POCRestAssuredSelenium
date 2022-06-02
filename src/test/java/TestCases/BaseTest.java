@@ -2,8 +2,10 @@ package TestCases;
 
 import Helpers.DriverManager;
 import Helpers.Utils;
+import io.github.bonigarcia.wdm.WebDriverManager;
 import io.restassured.RestAssured;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 
@@ -17,10 +19,15 @@ public class BaseTest {
     public void before() {
         try {
             //Configuraciones para UI testing
-            /*DriverManager.setDriver(Utils.getBrowser(), Utils.isHeadless());
+            DriverManager.setDriver(Utils.getBrowser(), Utils.isHeadless());
             driver = DriverManager.getDriver();
             String url_application = Utils.getProperty("environments", "siteURL-" + Utils.getEnvironment());
-            driver.get(url_application);*/
+            driver.get(url_application);
+            WebDriverManager.chromedriver().setup();
+            ChromeDriver driver = new ChromeDriver();
+            driver.get("http://way2automation.com");
+            System.out.println(driver.getTitle());
+            driver.quit();
 
             //configuraciones para API Testing
             baseURI = Utils.getProperty("environments", "apiURL-" + Utils.getEnvironment());
