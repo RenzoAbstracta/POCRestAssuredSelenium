@@ -1,35 +1,32 @@
 package TestCases;
 
-import Helpers.DriverManager;
+import Helpers.CustomDriverManager;
 import Helpers.Utils;
 import io.github.bonigarcia.wdm.WebDriverManager;
-import io.restassured.RestAssured;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeMethod;
-
-import static io.restassured.RestAssured.baseURI;
+import org.testng.annotations.BeforeClass;
 
 public class BaseTest {
 
     public WebDriver driver;
     public static String baseURI;
-    @BeforeMethod
+    @BeforeClass
     public void before() {
         try {
             //Configuraciones para UI testing
-            DriverManager.setDriver(Utils.getBrowser(), Utils.isHeadless());
-            driver = DriverManager.getDriver();
+            CustomDriverManager.setDriver(Utils.getBrowser(), Utils.isHeadless());
+            driver = CustomDriverManager.getDriver();
             String url_application = Utils.getProperty("environments", "siteURL-" + Utils.getEnvironment());
             driver.get(url_application);
-            WebDriverManager.chromedriver().setup();
-            ChromeDriver driver = new ChromeDriver();
-            driver.get("http://way2automation.com");
-            System.out.println(driver.getTitle());
-            driver.quit();
+            /*WebDriverManager.chromedriver().setup();
+            ChromeDriver driver = new ChromeDriver();*/
+
 
             //configuraciones para API Testing
+            String ambiente = Utils.getEnvironment();
+            System.out.println(ambiente);
             baseURI = Utils.getProperty("environments", "apiURL-" + Utils.getEnvironment());
             System.out.println("la url base es " + baseURI);
         } catch (Exception ex) {

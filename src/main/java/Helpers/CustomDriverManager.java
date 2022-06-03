@@ -9,7 +9,7 @@ import org.openqa.selenium.edge.EdgeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
 
-public class DriverManager {
+public class CustomDriverManager {
 
     private static final ThreadLocal<WebDriver> driver = new ThreadLocal<>();
 
