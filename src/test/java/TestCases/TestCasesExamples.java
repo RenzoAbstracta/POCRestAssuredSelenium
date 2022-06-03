@@ -1,18 +1,15 @@
 package TestCases;
 
+import DataProviders.DataProviderClass;
 import Endpoints.RequestExample;
 import Entities.Pay;
 import io.qameta.allure.Allure;
 import io.qameta.allure.Description;
-import org.testng.annotations.DataProvider;
+import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
+import DataProviders.csv.DefaultCSVDataProvider;
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.Map;
-import java.util.Scanner;
+import java.util.*;
 
 import static io.restassured.RestAssured.given;
 
@@ -43,32 +40,10 @@ public class TestCasesExamples extends BaseTest {
         System.out.println("el monto del pago es: "  + unP.getAmount());
     }
 
-
-    final static String CSV_FILE = "src/main/resources/integrations_csv/new_users.csv";
-    final static String DELIMETER = ",";
-
-    @DataProvider(name = "test")
-    public Iterator<Object[]> testDP(){
-        try {
-            Scanner scanner = new Scanner(new File(CSV_FILE)).useDelimiter(DELIMETER);
-            return new Iterator<Object[]>() {
-                @Override
-                public boolean hasNext() {
-                    return scanner.hasNext();
-                }
-                @Override
-                public Object[] next() {
-                    return new Object[]{scanner.next()};
-                }
-            };
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-            return null;
-        }
+    @Test(dataProvider = "data-provider-default-csv", dataProviderClass = DataProviderClass.class)
+    @Description("Ejemplo de lectura de un archivo csv")
+    public void testOneLineCSV(String name, String rol){
+        System.out.println(name + '\t' + rol);
     }
 
-    @Test(dataProvider = "test")
-    public void testOneLineCSV(String value){
-        System.out.println(value);
-    }
 }
