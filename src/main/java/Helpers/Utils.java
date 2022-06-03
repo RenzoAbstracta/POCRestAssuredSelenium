@@ -46,18 +46,21 @@ public class Utils {
 
     public static Boolean isHeadless(){
         String isHeadless = System.getProperty("headless");
-
-        switch(isHeadless.toLowerCase()){
-            case "true":
-            case "t":
-            case "1":
-                return true;
-            case "false":
-            case "f":
-            case "0":
-                return false;
-            default:
-                return false;
+        if(isHeadless != null) {
+            System.out.println("la concha de la lora");
+            switch(isHeadless.toLowerCase()){
+                case "true":
+                case "t":
+                case "1":
+                    return true;
+                case "false":
+                case "f":
+                case "0":
+                    return false;
+                default:
+                    return false;
+            }
         }
+        return false;
     }
 }

@@ -5,7 +5,12 @@ import Endpoints.RequestExample;
 import Entities.Pay;
 import io.qameta.allure.Allure;
 import io.qameta.allure.Description;
+
 import org.testng.annotations.Parameters;
+
+import org.testng.Assert;
+import org.testng.annotations.DataProvider;
+
 import org.testng.annotations.Test;
 import DataProviders.csv.DefaultCSVDataProvider;
 
@@ -40,10 +45,19 @@ public class TestCasesExamples extends BaseTest {
         System.out.println("el monto del pago es: "  + unP.getAmount());
     }
 
+    @Test
+    @Description("Esto es un simple test de UI con selemium")
+    public void Test03(){
+        driver.get("http://google.com");
+        System.out.println(driver.getTitle());
+        Assert.assertEquals(driver.getTitle(), "Google");
+    }
+
     @Test(dataProvider = "data-provider-default-csv", dataProviderClass = DataProviderClass.class)
     @Description("Ejemplo de lectura de un archivo csv")
-    public void testOneLineCSV(String name, String rol){
+    public void testOneLineCSV(String name, String rol) {
         System.out.println(name + '\t' + rol);
     }
+    
 
 }
