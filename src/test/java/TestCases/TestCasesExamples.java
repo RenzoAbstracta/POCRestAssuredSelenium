@@ -46,9 +46,9 @@ public class TestCasesExamples extends BaseTest {
 
     @Test
     @Description("Esto es un simple test de UI con selemium")
-    public void Test03(){
-        driver.get("http://google.com");
+    public void Test03() throws InterruptedException {
         System.out.println(driver.getTitle());
+        Thread.sleep(10000);
         Assert.assertEquals(driver.getTitle(), "Google");
     }
 

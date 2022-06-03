@@ -21,15 +21,11 @@ public class BaseTest {
             driver = CustomDriverManager.getDriver();
             String url_application = Utils.getProperty("environments", "siteURL-" + Utils.getEnvironment());
             driver.get(url_application);
-            /*WebDriverManager.chromedriver().setup();
-            ChromeDriver driver = new ChromeDriver();*/
-
 
             //configuraciones para API Testing
             String ambiente = Utils.getEnvironment();
             System.out.println(ambiente);
             baseURI = Utils.getProperty("environments", "apiURL-" + Utils.getEnvironment());
-            System.out.println("la url base es " + baseURI);
         } catch (Exception ex) {
             System.out.println("ERROR BEFORE: " + ex);
         }
