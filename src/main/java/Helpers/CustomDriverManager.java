@@ -28,7 +28,7 @@ public class CustomDriverManager {
     }
 
     private static WebDriver getNewDriverInstance(String browserName, Boolean headless) throws Exception {
-        WebDriver driver;
+        RemoteWebDriver driver;
         try {
             switch (browserName.toLowerCase()) {
                 case "firefox":
