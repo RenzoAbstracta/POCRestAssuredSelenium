@@ -4,6 +4,7 @@ import Endpoints.RequestExample;
 import Entities.Pay;
 import io.qameta.allure.Allure;
 import io.qameta.allure.Description;
+import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
@@ -41,6 +42,14 @@ public class TestCasesExamples extends BaseTest {
         Allure.step("Validar DB");
         Pay unP = DB.UtilsDataBase.getInstancia().getPayingFromDB(1);
         System.out.println("el monto del pago es: "  + unP.getAmount());
+    }
+
+    @Test
+    @Description("Esto es un simple test de UI con selemium")
+    public void Test03(){
+        driver.get("http://google.com");
+        System.out.println(driver.getTitle());
+        Assert.assertEquals(driver.getTitle(), "Google");
     }
 
 
