@@ -24,7 +24,7 @@
             <groupId>org.testng</groupId>
             <artifactId>testng</artifactId>
             <version>7.6.0</version>
-            <scope>test</scope>
+            <scope>test, compile</scope>
         </dependency>
         <dependency>
             <groupId>mysql</groupId>
@@ -62,6 +62,11 @@
             <groupId>io.github.bonigarcia</groupId>
             <artifactId>webdrivermanager</artifactId>
             <version>5.2.0</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-csv</artifactId>
+            <version>1.1</version>
         </dependency>
     </dependencies>
 </project>
