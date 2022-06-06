@@ -1,7 +1,7 @@
 package DataProviders;
 
 import DataProviders.csv.DefaultCSVDataProvider;
-import org.testng.annotations.DataProvider;
+//import org.testng.annotations.DataProvider;
 
 import java.util.Arrays;
 import java.util.Iterator;
@@ -31,10 +31,10 @@ public class DataProviderClass {
 
     public static void setFilesDirectoryName(String dirName) { dir = dirName; }
 
-    @DataProvider(name="data-provider-default-csv")
+    /*@DataProvider(name="data-provider-default-csv")
     public static Iterator<Object[]> getDefaultCSVData() {
         Arrays.sort(fileSelectedRows);
         return DefaultCSVDataProvider.getDataFromFile(getPath(fileName), fileSelectedRows);
-    }
+    }*/
 
 }
